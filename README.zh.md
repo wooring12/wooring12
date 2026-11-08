@@ -112,16 +112,6 @@ Cloud APIs  +  In-house GPU models (SGLang / vLLM)
 
 ---
 
-## 🧩 精选仓库
-
-| 仓库 | 简介 |
-|---|---|
-| dotfiles | Agent CLI 共享 harness：通用规则、技能、hooks、会话交接 |
-| llm-gateway | 面向 Agent CLI 的单端点 LLM 网关（LiteLLM + nginx + PostgreSQL，含客户端安装程序） |
-| a100-portal | GPU 服务器运维门户 |
-
----
-
 ## 🔬 研究（硕士阶段与独立研究）
 
 在从事平台工作之前及同期，我的研究生阶段与独立研究主要聚焦于知识增强 LLM、高效模型与后训练。

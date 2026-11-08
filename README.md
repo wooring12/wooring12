@@ -112,16 +112,6 @@ Cloud APIs  +  In-house GPU models (SGLang / vLLM)
 
 ---
 
-## 🧩 Featured Repositories
-
-| Repository | What it is |
-|---|---|
-| dotfiles | Shared harness for agent CLIs: common rules, skills, hooks, session hand-off |
-| llm-gateway | Single-endpoint LLM gateway for agent CLIs (LiteLLM + nginx + PostgreSQL, client installer) |
-| a100-portal | GPU server operations portal |
-
----
-
 ## 🔬 Research (M.S. & Independent)
 
 Before and alongside platform work, my graduate and independent research focused on knowledge-augmented LLMs, efficient models, and post-training.
