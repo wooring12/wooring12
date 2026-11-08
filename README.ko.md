@@ -116,7 +116,7 @@ Cloud APIs  +  In-house GPU models (SGLang / vLLM)
 
 | 저장소 | 설명 |
 |---|---|
-| [dotfiles](https://github.com/wooring12/dotfiles) | 에이전트 CLI용 공용 harness: 공통 규칙, 스킬, hooks, 세션 인계 |
+| dotfiles | 에이전트 CLI용 공용 harness: 공통 규칙, 스킬, hooks, 세션 인계 |
 | llm-gateway | 에이전트 CLI용 단일 엔드포인트 LLM 게이트웨이(LiteLLM + nginx + PostgreSQL, 클라이언트 설치 도구) |
 | a100-portal | GPU 서버 운영 포털 |
 
