@@ -112,16 +112,6 @@ Cloud APIs  +  In-house GPU models (SGLang / vLLM)
 
 ---
 
-## 🧩 주요 저장소
-
-| 저장소 | 설명 |
-|---|---|
-| dotfiles | 에이전트 CLI용 공용 harness: 공통 규칙, 스킬, hooks, 세션 인계 |
-| llm-gateway | 에이전트 CLI용 단일 엔드포인트 LLM 게이트웨이(LiteLLM + nginx + PostgreSQL, 클라이언트 설치 도구) |
-| a100-portal | GPU 서버 운영 포털 |
-
----
-
 ## 🔬 연구 (석사 과정 및 개인 연구)
 
 플랫폼 업무 이전부터 병행해 온 대학원 및 개인 연구는 지식 증강 LLM, 효율적인 모델, 사후 학습(post-training)에 초점을 두었습니다.
