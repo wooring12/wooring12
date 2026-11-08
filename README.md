@@ -1,48 +1,131 @@
-### Yurim Oh [@Masterjun12]
+<p align="left">
+  <a href="README.md"><img src="https://img.shields.io/badge/English-selected-1f5fa8?style=flat-square" alt="English"></a>
+  <a href="README.ko.md"><img src="https://img.shields.io/badge/%ED%95%9C%EA%B5%AD%EC%96%B4-view-555?style=flat-square" alt="한국어"></a>
+  <a href="README.zh.md"><img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-view-555?style=flat-square" alt="简体中文"></a>
+</p>
+
+### Yurim Oh [@wooring12]
 
 <p align="left">
-  <img src="https://komarev.com/ghpvc/?username=masterjun12" alt="masterjun12" />
+  <img src="https://komarev.com/ghpvc/?username=wooring12" alt="wooring12" />
 </p>
 
 ---
 
-## 🧠 AI Researcher & System Builder
+## 🏗️ AI Platform Engineer
 
-I am interested in building **practical AI systems that connect models, knowledge, tools, and infrastructure**.
+I build the **platform layer that lets an organization actually use LLMs**: knowledge pipelines, closed-network model serving, deployment infrastructure, and agent tooling.
 
-My current focus lies in:
+Since early 2026 I have been working on an **AI Transformation (AX) program at a financial institution**, involved from planning through environment build-out. Most of that work happens in an **air-gapped, security-regulated environment**, which shapes how I design systems:
 
-- **Graph-based AI and Knowledge-Augmented LLMs**
-- **LLM Agents, Agentic Workflows, and Enterprise AI Systems**
-- **Small Language Model Optimization and Efficient Inference**
-- **Reinforcement Learning for LLM Post-Training**
-- **Medical AI and Lightweight Vision Models**
+- every model, image, and dependency has to be brought in, scanned, and patched deliberately
+- serving has to be reproducible and operable by a small team
+- knowledge and agents have to stay grounded in internal data, with auditable behavior
 
-Rather than treating LLMs as isolated chat models, I focus on how they can be connected with
-**knowledge graphs, retrieval systems, databases, agents, serving infrastructure, and evaluation pipelines**.
+What I care about:
 
----
-
-## 📜 Qualifications
-
-- NVIDIA — Fundamentals of Deep Learning
-- NVIDIA — Transformer Based Natural Language Processing Models
-- Microsoft Certified — Azure AI Fundamentals
-- Microsoft Certified — Azure Data Fundamentals
+- **Grounded knowledge** — turning internal documents and regulations into graphs and retrieval systems an LLM can reason over
+- **Operable model serving** — open-weight models running reliably on in-house GPUs
+- **Platform, not demos** — CI/CD, registries, gateways, observability, and access control around the models
+- **Agentic engineering** — coding agents and agent CLIs used as real development tools, with shared rules, skills, and a common model gateway
 
 ---
 
-## 🔭 Career
+## 🔭 Experience
 
-- B.S. in Artificial Intelligence, Jeonju University, Korea, 2025
-- M.S. student in Agro AI, Jeonju University, Korea, 2024 ~ Present
-- Completed an education certificate program at the University of Toronto C-MORE Lab
-- Research Intern, Dareesoft through the WEMEET program
-- Research Intern, Rural Development Administration through the WEMEET program
+**AI Platform Engineer · Financial sector** — 2026 – Present
+AX program: planning and building the in-house LLM environment end to end (knowledge, serving, platform, agents).
+
+**Research Intern · Dareesoft** — WEMEET program
+**Research Intern · Rural Development Administration** — WEMEET program
+**Certificate program · University of Toronto C-MORE Lab**
 
 ---
 
-## 🌱 Research Themes
+## 🧭 What I Have Built (2026)
+
+The year followed one direction: from *making internal knowledge usable by LLMs*, to *running models in a closed network*, to *building the platform and agent tooling on top*.
+
+### 1. Knowledge Infrastructure for LLMs
+
+- Built a **GraphRAG pipeline over legal and regulatory documents** using Neo4j's LLM graph builder
+- Iterated the **graph schema** through several versions (flat → typed schema → hierarchy-aware) and multi-source document ingestion
+- Set up **graph quality evaluation** with LLM-based judges and pre-release smoke tests
+- Built **RAG operations for financial documents** (ingestion, retrieval, evaluation loop)
+- Studied **ontology modeling** and **code call-graph analysis** as knowledge sources for agents
+
+```text
+Internal Documents / Regulations
+    ↓
+Parsing · Chunking · Entity/Relation Extraction
+    ↓
+Knowledge Graph (Neo4j) + Vector Index
+    ↓
+Graph + Vector Hybrid Retrieval
+    ↓
+LLM Answering · Evaluation · Feedback
+```
+
+### 2. Closed-Network LLM Serving
+
+- **Scouted open-weight models** and ran the **air-gapped import** process (weights, tokenizers, serving images)
+- Built and **patched serving-engine container images** for vulnerabilities before import
+- Generated **SBOM / AI-BOM** inventories for imported software and models
+- Served models with **vLLM and SGLang**, including long-context configuration and quantized variants
+- Prepared **offline GPU Operator** installs on enterprise Linux for Kubernetes GPU nodes
+
+```text
+Model / Image Selection
+    ↓
+Offline Packaging · SBOM · Vulnerability Patch
+    ↓
+Air-gapped Transfer · Internal Registry
+    ↓
+Serving Engine (vLLM / SGLang) on GPU nodes
+    ↓
+OpenAI-compatible Endpoint
+```
+
+### 3. Platform & Delivery
+
+- **Kubernetes**-based exploration of model serving and agent platforms
+- **CI/CD for model and app delivery** (Jenkins Configuration-as-Code, Argo CD readiness)
+- Self-hosted **Git and container registry** (GitLab, Harbor) for closed-network development
+- Shared **PostgreSQL / Redis** services and a **GPU server operations portal** (usage, monitoring, docs)
+- **Speech-to-knowledge pipeline**: speech recognition and speaker diarization feeding a knowledge base
+
+### 4. Agent Platform & Agentic Engineering
+
+- Evaluated **agent platforms** and the LLM capabilities they depend on (tool calling, long context, structured output)
+- Adopted **agent CLIs** (Claude Code, Codex CLI, Antigravity CLI, OpenCode) as daily development tools, with a **shared harness**: common rules, reusable skills, session hand-off, and cross-agent memory
+- Built **MCP servers** (e.g. vector database access) and agent skill libraries
+- Built an **LLM Gateway**: one endpoint and per-user keys for every agent CLI, routing across cloud APIs and in-house GPU models, tiered model access, complexity-based auto routing, fallback, and usage logging in a database
+- Developing (in progress) an **SR-to-deployment coding agent** on Codex CLI: it takes service requests (SRs) for a banking app, implements the code changes automatically, and carries them through CI/CD
+
+```text
+Claude Code · Codex CLI · OpenCode · Antigravity CLI
+    ↓  (one endpoint, per-user virtual keys)
+LLM Gateway  —  auth · tiers · auto-routing · fallback · usage logs
+    ↓
+Cloud APIs  +  In-house GPU models (SGLang / vLLM)
+```
+
+---
+
+## 🧩 Featured Repositories
+
+| Repository | What it is |
+|---|---|
+| [dotfiles](https://github.com/wooring12/dotfiles) | Shared harness for agent CLIs: common rules, skills, hooks, session hand-off |
+| llm-gateway | Single-endpoint LLM gateway for agent CLIs (LiteLLM + nginx + PostgreSQL, client installer) |
+| a100-portal | GPU server operations portal |
+
+---
+
+## 🔬 Research (M.S. & Independent)
+
+Before and alongside platform work, my graduate and independent research focused on knowledge-augmented LLMs, efficient models, and post-training.
+
 
 ### 1. Graph-based AI & Knowledge-Integrated LLMs
 
@@ -305,9 +388,11 @@ This direction connects generative AI with agentic automation and production pip
 
 ---
 
-## 🧩 Current Projects
+---
 
-### KG-LLM Token Injection
+### Research Projects
+
+#### KG-LLM Token Injection
 
 A research direction for injecting knowledge graph representations into LLMs.
 
@@ -321,7 +406,7 @@ Core idea:
 
 ---
 
-### Legal GraphRAG System
+#### Legal GraphRAG System
 
 A graph-based legal QA system using structured legal data.
 
@@ -337,7 +422,7 @@ Components:
 
 ---
 
-### GRPO Improvement Experiments
+#### GRPO Improvement Experiments
 
 A post-training experiment pipeline for LLM reasoning.
 
@@ -351,7 +436,7 @@ Focus:
 
 ---
 
-### Enterprise AI Agent MVP
+#### Enterprise AI Agent MVP
 
 A LangGraph-based AI agent system for public information search and institutional guidance.
 
@@ -368,7 +453,7 @@ Features:
 
 ---
 
-### LAG-UNet Brain Tumor Segmentation
+#### LAG-UNet Brain Tumor Segmentation
 
 A lightweight segmentation model for brain tumor MRI analysis.
 
@@ -382,195 +467,91 @@ Focus:
 
 ---
 
-## 📚 Paper Reading and Research
+---
 
-### Graph & LLM / Reasoning
+## 🎓 Education
 
-- [Knowledge Graph Large Language Model (KG-LLM) for Link Prediction](https://arxiv.org/abs/2403.07311)
-- [Knowledge Graphs as Context Sources for LLM-Based Explanations of Learning Recommendations](https://ieeexplore.ieee.org/abstract/document/10578654)
-- [Generate-on-Graph: Treat LLM as both Agent and KG for Incomplete Knowledge Graph Question Answering](https://aclanthology.org/2024.emnlp-main.1023/)
-- [Think-on-Graph: Deep and Responsible Reasoning of Large Language Model on Knowledge Graph](https://arxiv.org/abs/2307.07697)
-
-### GraphRAG / Agentic Retrieval
-
-- Microsoft GraphRAG
-- HippoRAG
-- GNN-RAG
-- Think-on-Graph
-- Tool-augmented graph reasoning
-- Hybrid vector and graph retrieval
-
-### LLM Agents and System Design
-
-- LangGraph
-- Model Context Protocol
-- Agent-to-Agent communication
-- Tool calling
-- Long-running stateful agents
-- Agent evaluation and observability
-
-### LLM Optimization and Post-Training
-
-- LoRA / PEFT
-- RLHF / RLAIF
-- PPO
-- GRPO
-- Reward design
-- Efficient inference
-- vLLM serving
-
-### Computer Vision & Medical AI
-
-- [A Survey of Methods for Brain Tumor Segmentation Based on MRI Images](https://github.com/Masterjun12/Paper-and-experiment-seminar/blob/main/Paper/A%20survey%20of%20methods%20for%20brain%20tumor%20segmentation-based%20MRI%20images%20.pdf)
-- [Edge U-Net: Brain Tumor Segmentation Using MRI Based on Deep U-Net Model with Boundary Information](https://github.com/Masterjun12/Paper-and-experiment-seminar/blob/main/Paper/Edge_U-Net_Brain_tumor_segmentation_using_MRI_based_on_Deep_U-Netmodel_with_boundary_information__.pdf)
-- [FU-net: Multi-class Image Segmentation Using Feedback Weighted U-net](https://github.com/Masterjun12/Paper-and-experiment-seminar/blob/main/Paper/FU-net_Multi-class_Image_Segmentation_Using_Feedback_Weighted_U-net.pdf)
-- [Using a Generative Adversarial Network to Generate Synthetic MRI Images for Multi-class Automatic Segmentation of Brain Tumors](https://github.com/Masterjun12/Paper-and-experiment-seminar/blob/main/Paper/Using_a_generative_adversarialnetwork_to_generate_synthetic_MRIimages_for_multi-class_automaticsegmentation_of_brain_tumors.pdf)
-- [Edge-Boosted U-Net for 2D Medical Image Segmentation](https://github.com/Masterjun12/Paper-and-experiment-seminar/blob/main/Paper/_Edge-Boosted_U-Net_for_2D_Medical_Image_Segmentation.pdf)
-- [A Survey on Efficient Vision Transformers: Algorithms, Techniques, and Performance Benchmarking](https://arxiv.org/abs/2309.02031)
-
-More papers:
-
-- [Paper and Experiment Seminar Repository](https://github.com/Masterjun12/Paper-and-experiment-seminar/tree/main/Paper)
+- M.S. in Agro AI, Jeonju University, Korea — expected Feb 2027
+- B.S. in Artificial Intelligence, Jeonju University, Korea, 2025
 
 ---
 
-## 🧰 Languages and Libraries
+## 📜 Qualifications
+
+- NVIDIA — Fundamentals of Deep Learning
+- NVIDIA — Transformer Based Natural Language Processing Models
+- Microsoft Certified — Azure AI Fundamentals
+- Microsoft Certified — Azure Data Fundamentals
+
+---
+
+## 🧰 Languages and Tools
 
 ### Programming
 
 - Python
 - Bash
 - SQL
+- TypeScript
+
+### LLM Serving & Gateway
+
+- vLLM
+- SGLang
+- LiteLLM
+- OpenAI-compatible APIs
+- Quantized model deployment
+
+### Agents
+
+- Claude Code / Codex CLI / Antigravity CLI / OpenCode
+- Model Context Protocol (MCP)
+- LangGraph
+- LangChain
+- Tool Calling / Structured Output
+
+### Knowledge & Retrieval
+
+- Neo4j / LLM Graph Builder
+- GraphRAG
+- OpenSearch
+- Milvus
+- Vector Search / Hybrid Retrieval
+- Knowledge Graph Embedding
+
+### Platform / DevOps
+
+- Docker / Docker Compose
+- Kubernetes / GPU Operator
+- Jenkins / Argo CD
+- GitLab / Harbor
+- Nginx
+- PostgreSQL / Redis
+- SBOM (CycloneDX)
+- Air-gapped deployment
 
 ### Deep Learning
 
 - PyTorch
-- TensorFlow
-- Keras
 - Hugging Face Transformers
 - PEFT / LoRA
-
-### Data Science
-
-- Pandas
-- NumPy
-- Scikit-learn
-
-### NLP / LLM
-
-- LangChain
-- LangGraph
-- LlamaIndex
-- vLLM
-- OpenWebUI
-- RAG
-- GraphRAG
-- Tool Calling
-- Structured Output Generation
-
-### Graph and Databases
-
-- Neo4j
-- OpenSearch
-- SQL / SQLGate
-- Knowledge Graph Embedding
-- Vector Search
-- Hybrid Retrieval
+- TensorFlow / Keras
 
 ### Computer Vision
 
 - OpenCV
 - Ultralytics
 - U-Net
-- DeepLab
-- Mask R-CNN
 - Medical Image Segmentation
-
-### Infrastructure / MLOps
-
-- Docker
-- Docker Compose
-- Kubernetes
-- Linux Server Environment
-- Nginx
-- Jenkins
-- Nexus
-- REST API
-- WebSocket / API Integration
-
----
-
-## ⚙️ System Design Interests
-
-I am interested in building AI systems as complete pipelines:
-
-```text
-Data Source
-    ↓
-Parser / Ingestion
-    ↓
-Database / Vector Store / Graph DB
-    ↓
-Retriever / Agent Tool
-    ↓
-LLM Serving
-    ↓
-Workflow Orchestration
-    ↓
-Frontend UI
-    ↓
-Monitoring / Evaluation / Feedback
-```
-
-This includes:
-
-- closed-network deployment
-- Docker-based reproducibility
-- model serving with vLLM
-- OpenAI-compatible local endpoints
-- graph/vector DB integration
-- agent workflow debugging
-- frontend monitoring interfaces
-- experiment automation
-
----
-
-## 🎯 Research Direction Summary
-
-My long-term research direction is to build **knowledge-grounded, efficient, and agentic AI systems**.
-
-In particular, I am interested in the intersection of:
-
-```text
-Knowledge Graphs
-    ×
-Small / Efficient Language Models
-    ×
-Agentic Workflows
-    ×
-Enterprise AI Infrastructure
-    ×
-Reliable Evaluation
-```
-
-The goal is to move beyond simple prompt engineering and build AI systems that are:
-
-- structured
-- explainable
-- reproducible
-- resource-efficient
-- deployable
-- connected to real data and tools
 
 ---
 
 ## 📫 Contact
 
 - LinkedIn: [Yurim Oh](https://www.linkedin.com/in/yurim-oh-225001285/)
-- Email: ak333ak12@jj.ac.kr
 
 ---
 
 <p>
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=masterjun12&show_icons=true" alt="masterjun12" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=wooring12&show_icons=true" alt="wooring12" />
 </p>
