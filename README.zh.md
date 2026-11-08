@@ -116,7 +116,7 @@ Cloud APIs  +  In-house GPU models (SGLang / vLLM)
 
 | 仓库 | 简介 |
 |---|---|
-| [dotfiles](https://github.com/wooring12/dotfiles) | Agent CLI 共享 harness：通用规则、技能、hooks、会话交接 |
+| dotfiles | Agent CLI 共享 harness：通用规则、技能、hooks、会话交接 |
 | llm-gateway | 面向 Agent CLI 的单端点 LLM 网关（LiteLLM + nginx + PostgreSQL，含客户端安装程序） |
 | a100-portal | GPU 服务器运维门户 |
 

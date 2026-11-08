@@ -116,7 +116,7 @@ Cloud APIs  +  In-house GPU models (SGLang / vLLM)
 
 | Repository | What it is |
 |---|---|
-| [dotfiles](https://github.com/wooring12/dotfiles) | Shared harness for agent CLIs: common rules, skills, hooks, session hand-off |
+| dotfiles | Shared harness for agent CLIs: common rules, skills, hooks, session hand-off |
 | llm-gateway | Single-endpoint LLM gateway for agent CLIs (LiteLLM + nginx + PostgreSQL, client installer) |
 | a100-portal | GPU server operations portal |
 
